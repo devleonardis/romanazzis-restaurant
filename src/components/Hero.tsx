@@ -31,7 +31,7 @@ export function Hero({
     <div ref={ref} className="relative flex h-[92vh] min-h-[560px] w-full items-end overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0">
         <Image src={image} alt={title} fill priority className="object-cover" sizes="100vw" />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-bg/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/55 to-black/25" />
       </motion.div>
 
       <div className="container-xl relative pb-16 pt-40 sm:pb-20">
