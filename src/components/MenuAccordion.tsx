@@ -7,7 +7,7 @@ import { Reveal } from "@/components/Reveal";
 
 const EASE = [0.19, 1, 0.22, 1] as const;
 
-export type MenuItem = [name: string, price: string, description?: string];
+export type MenuItem = [name: string, price: string, description?: string, image?: string];
 
 export function MenuAccordion({
   title,
@@ -62,13 +62,20 @@ export function MenuAccordion({
             className="overflow-hidden"
           >
             <div className="grid gap-x-10 gap-y-5 border-t border-hairline p-6 pt-7 md:grid-cols-2">
-              {items.map(([name, price, desc]) => (
-                <div key={name}>
-                  <div className="flex items-baseline justify-between gap-4 border-b border-hairline pb-3">
-                    <span className="text-base text-ink/90">{name}</span>
-                    <span className="whitespace-nowrap text-sm text-gold">{price}</span>
+              {items.map(([name, price, desc, itemImage]) => (
+                <div key={name} className="flex gap-4">
+                  {itemImage && (
+                    <span className="relative h-14 w-14 flex-none overflow-hidden">
+                      <Image src={itemImage} alt={name} fill className="object-cover" sizes="56px" />
+                    </span>
+                  )}
+                  <div className="flex-1">
+                    <div className="flex items-baseline justify-between gap-4 border-b border-hairline pb-3">
+                      <span className="text-base text-ink/90">{name}</span>
+                      <span className="whitespace-nowrap text-sm text-gold">{price}</span>
+                    </div>
+                    {desc && <p className="mt-2 text-sm leading-relaxed text-ink-muted">{desc}</p>}
                   </div>
-                  {desc && <p className="mt-2 text-sm leading-relaxed text-ink-muted">{desc}</p>}
                 </div>
               ))}
             </div>

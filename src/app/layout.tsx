@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { StickyBookButton } from "@/components/StickyBookButton";
+import { PageTransition } from "@/components/PageTransition";
 import { site } from "@/lib/site";
 
 const playfair = Playfair_Display({
@@ -74,7 +75,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full flex flex-col bg-bg text-ink">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
         <StickyBookButton />
       </body>
