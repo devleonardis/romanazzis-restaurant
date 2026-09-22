@@ -60,7 +60,9 @@ h1, h2, h3, h4 {
   letter-spacing: 0.08em;
   border: 1px solid var(--ink);
   color: var(--ink);
-  transition: background-color 0.28s ease, color 0.28s ease, border-color 0.28s ease;
+  transition: background-color 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+    color 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+    border-color 0.45s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .btn-rect:hover {
   background: var(--ink);
@@ -78,7 +80,9 @@ h1, h2, h3, h4 {
   background: var(--accent);
   color: var(--ink);
   border: 1px solid var(--accent);
-  transition: background-color 0.28s ease, border-color 0.28s ease, transform 0.28s ease;
+  transition: background-color 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+    border-color 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 0.45s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .btn-solid:hover {
   background: var(--accent-strong);
@@ -113,7 +117,7 @@ h1, h2, h3, h4 {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 28s linear infinite;
+  animation: marquee 50s linear infinite;
 }
 .marquee-track:hover {
   animation-play-state: paused;

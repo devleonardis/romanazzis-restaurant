@@ -17,11 +17,20 @@ export function Navbar() {
   }, []);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-bg/90 backdrop-blur border-b border-hairline" : "bg-transparent"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50">
+      {/* Persistent scrim so the logo/nav stay legible over any hero image, regardless of scroll position */}
+      <div
+        aria-hidden
+        className={`pointer-events-none absolute inset-0 -z-10 transition-opacity duration-700 ease-out ${
+          scrolled ? "opacity-0" : "opacity-100"
+        } bg-gradient-to-b from-black/70 via-black/30 to-transparent`}
+      />
+      <div
+        className={`absolute inset-0 -z-10 border-b border-hairline bg-bg/90 backdrop-blur transition-opacity duration-700 ease-out ${
+          scrolled ? "opacity-100" : "opacity-0"
+        }`}
+      />
+
       <div className="container-xl flex items-center justify-between py-4">
         <Link href="/" className="flex items-center gap-2">
           <Image

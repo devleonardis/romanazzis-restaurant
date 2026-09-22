@@ -18,8 +18,6 @@ export const site = {
   },
   booking:
     "https://ypbfeygzmlodmzrfj5bn4gqk33umeh0z.forms.pienissimo.pro/?id=Kn1nHv",
-  menuEmbed: "https://ypbfeygzmlodmzrfj5bn4gqk33umeh0z.menu.pienissimo.pro/?id=7",
-  wineEmbed: "https://ypbfeygzmlodmzrfj5bn4gqk33umeh0z.menu.pienissimo.pro/?id=8",
   piva: "07427660720",
 } as const;
 

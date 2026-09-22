@@ -109,10 +109,10 @@ export default function HomePage() {
                 src={d.src}
                 alt={d.name}
                 fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-110"
                 sizes="(min-width: 1024px) 16vw, 45vw"
               />
-              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-black/0 to-black/0 p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-black/0 to-black/0 p-3 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100">
                 <span className="text-xs text-ink">{d.name}</span>
               </div>
             </Reveal>
