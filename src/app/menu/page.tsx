@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { Hero } from "@/components/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { MenuAccordion, type MenuItem } from "@/components/MenuAccordion";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Menù — Menù di Pesce e Degustazione",
@@ -46,7 +46,7 @@ const categories: { title: string; note?: string; image: string; items: MenuItem
       ["Tagliatelle 100g", "€6,00"],
       ["Gambero rosso cal.2 (al pz)", "€6,00"],
       ["Scampo cal.3 (al pz)", "€8,00"],
-      ["Polipetti crudi 100g", "€12,00", undefined, "/images/il-ristorante/pesce-5.webp"],
+      ["Polipetti crudi 100g", "€12,00"],
       ["Allievi di seppie 100g", "€7,00"],
     ],
   },
@@ -57,7 +57,7 @@ const categories: { title: string; note?: string; image: string; items: MenuItem
       ["Il gran piatto di sfilettati", "€28,00", "sfilettati e tartare di pesce con condimenti"],
       ["Carpaccio di spigola", "€18,00", "battuto di spigola, misticanza aromatica, agrumi, granita di finocchietto selvatico"],
       ["Filetti di alici del Mar Cantabrico in olio 50g", "€16,00", "con burro presalè e crostini"],
-      ["Battuta di tonno", "€18,00", "battuta di tonno crudo, pesto di fave fresche, cipolla in agro, polvere di capperi", "/images/il-ristorante/tonno-tataki.webp"],
+      ["Battuta di tonno", "€18,00", "battuta di tonno crudo, pesto di fave fresche, cipolla in agro, polvere di capperi"],
       ["Ricciola mandorla ed erbe", "€20,00", "crudo di ricciola, latte di mandorla pugliese, olio alle erbe"],
       ["Gambero rosa stracciatella e peperone", "€16,00", "tartare di gambero rosa, crema di peperone giallo, stracciatella, crumble al tarallo"],
       ["Avocado toast e salmone", "€16,00", "pan brioches tostato, salmone marinato e affumicato, guacamole, mayo al tuorlo agrumato"],
@@ -68,7 +68,7 @@ const categories: { title: string; note?: string; image: string; items: MenuItem
     image: "/images/il-ristorante/fish-02.jpg",
     items: [
       ["Baccalà mantecato", "€16,00", "gazpacho di pomodoro, pesto di basilico, crumble di tarallo e origano"],
-      ["Pesce spada nell'orto", "€18,00", "tagliata di pesce spada, verdure in varie consistenze, tartufo nero", "/images/il-ristorante/fish-06.jpg"],
+      ["Pesce spada nell'orto", "€18,00", "tagliata di pesce spada, verdure in varie consistenze, tartufo nero"],
       ["Le cozze in soft-tempura, pecorino e patate", "€16,00"],
       ["Calamaretti, fave e cicoriella", "€18,00", "calamaretti spillo fritti, purea di fave, cicoriella selvatica, olio di nduja"],
       ["Seppie, zucchine e mandorla", "€20,00", "seppia arrosto, zucchine alla poverella, crema di mandorla e croccante"],
@@ -101,7 +101,7 @@ const categories: { title: string; note?: string; image: string; items: MenuItem
       ["La spigola, carote e chimichurri", "€26,00"],
       ["La cernia, pappa al pomodoro e cozze", "€28,00"],
       ["Dentice all'antica", "€28,00", "scaloppa di dentice con olive, capperi, cipolla, pomodorino, purea di fave secche"],
-      ["L'astice \"nudo\", il \"bue\" e il \"fumo\"", "€60,00", "astice scottato senza carapace, tartare di pomodori cuori di bue, cipolla dolce, basilico", "/images/home/piatto-5.webp"],
+      ["L'astice \"nudo\", il \"bue\" e il \"fumo\"", "€60,00", "astice scottato senza carapace, tartare di pomodori cuori di bue, cipolla dolce, basilico"],
       ["Manzo intagliato", "€28,00", "tagliata di cuberoll Argentina con crema di patate e verdure"],
     ],
   },
@@ -109,7 +109,7 @@ const categories: { title: string; note?: string; image: string; items: MenuItem
     title: "I Dolci",
     image: "/images/il-ristorante/dolce.webp",
     items: [
-      ["Sottobosco", "€10,00", "semifreddo alla nocciola, crema al pistacchio, crumble al cacao", "/images/il-ristorante/dessert-01.jpg"],
+      ["Sottobosco", "€10,00", "semifreddo alla nocciola, crema al pistacchio, crumble al cacao"],
       ["Lo sfogliamisù", "€8,00", "sfoglia croccante, mousse al mascarpone, granita al caffè e cacao"],
       ["Foresta nera contemporanea", "€14,00", "morbido, namelaka, crumble al fondente, amarene, gelato al cioccolato"],
       ["Il limonolio", "€10,00", "crema al limone e sorbetto, meringa, spugna all'olio evo, croccante alla mandorla"],
@@ -129,9 +129,9 @@ export default function MenuPage() {
         intro={`"Definisco il mio concetto di cucina 'Tradizionalmente Innovativo'. Parte dalle radici della nostra cultura gastronomica, ma le reinterpreta con creatività e tecniche moderne." — Giuseppe Romanazzi`}
         showBadges={false}
       >
-        <a href={site.booking} target="_blank" rel="noopener noreferrer" className="btn-solid">
+        <Link href="/prenota" className="btn-solid">
           Prenota Ora
-        </a>
+        </Link>
       </Hero>
 
       <section className="section-space container-xl">

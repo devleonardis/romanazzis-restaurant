@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { Hero } from "@/components/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { TestimonialCard } from "@/components/TestimonialCard";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Chi Siamo — Storia, Location e Recensioni",
@@ -52,9 +52,9 @@ export default function ChiSiamoPage() {
         intro="Una storia iniziata nel 2013 sul porto di Giovinazzo, una location a cinque metri dal mare, e un'accoglienza raccontata da chi l'ha vissuta."
         showBadges={false}
       >
-        <a href={site.booking} target="_blank" rel="noopener noreferrer" className="btn-solid">
+        <Link href="/prenota" className="btn-solid">
           Prenota Ora
-        </a>
+        </Link>
       </Hero>
 
       {/* STORIA */}

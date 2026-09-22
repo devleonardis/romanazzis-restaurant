@@ -32,9 +32,9 @@ export default function HomePage() {
         title="Cucina raffinata sul mare"
         intro="Affacciato direttamente sul porticciolo, il ristorante interpreta il fine dining con misura, precisione e coerenza. Il mare non è uno sfondo, ma una presenza costante che accompagna la tavola."
       >
-        <a href={site.booking} target="_blank" rel="noopener noreferrer" className="btn-solid">
+        <Link href="/prenota" className="btn-solid">
           Prenota Ora
-        </a>
+        </Link>
         <Link href="/menu" className="btn-rect">
           Scopri il Menù
         </Link>
@@ -152,9 +152,9 @@ export default function HomePage() {
               Tavoli vista porto, servizio discreto: pranzo, cena o
               un&apos;occasione speciale.
             </p>
-            <a href={site.booking} target="_blank" rel="noopener noreferrer" className="btn-solid mt-6 w-fit">
+            <Link href="/prenota" className="btn-solid mt-6 w-fit">
               Prenota Ora
-            </a>
+            </Link>
           </div>
         </Reveal>
       </section>

@@ -2,12 +2,17 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { navLinks, site } from "@/lib/site";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { navLinks, primaryNavLinks, secondaryNavLinks } from "@/lib/site";
+
+const EASE = [0.19, 1, 0.22, 1] as const;
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const moreRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -15,6 +20,17 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!moreOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
+        setMoreOpen(false);
+      }
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, [moreOpen]);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
@@ -44,7 +60,7 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((l) => (
+          {primaryNavLinks.map((l) => (
             <Link
               key={l.href}
               href={l.href}
@@ -53,12 +69,54 @@ export function Navbar() {
               {l.label}
             </Link>
           ))}
+
+          <div ref={moreRef} className="relative">
+            <button
+              type="button"
+              onClick={() => setMoreOpen((v) => !v)}
+              aria-expanded={moreOpen}
+              className="eyebrow flex items-center gap-1.5 tracking-widest text-ink/60 transition-colors hover:text-ink"
+            >
+              Altro
+              <motion.span
+                animate={{ rotate: moreOpen ? 180 : 0 }}
+                transition={{ duration: 0.4, ease: EASE }}
+                className="inline-block text-[0.6rem]"
+                aria-hidden
+              >
+                ▾
+              </motion.span>
+            </button>
+
+            <AnimatePresence>
+              {moreOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.35, ease: EASE }}
+                  className="absolute right-0 top-full mt-4 w-48 border border-hairline bg-bg/95 py-2 backdrop-blur"
+                >
+                  {secondaryNavLinks.map((l) => (
+                    <Link
+                      key={l.href}
+                      href={l.href}
+                      onClick={() => setMoreOpen(false)}
+                      className="block px-5 py-2.5 text-sm text-ink/80 transition-colors hover:text-ink"
+                    >
+                      {l.label}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </nav>
 
         <div className="hidden lg:block">
-          <a href={site.booking} target="_blank" rel="noopener noreferrer" className="btn-solid">
+          <Link href="/prenota" className="btn-solid">
             Prenota Ora
-          </a>
+          </Link>
         </div>
 
         <button
@@ -85,9 +143,9 @@ export function Navbar() {
                 {l.label}
               </Link>
             ))}
-            <a href={site.booking} target="_blank" rel="noopener noreferrer" className="btn-solid w-fit">
+            <Link href="/prenota" onClick={() => setOpen(false)} className="btn-solid w-fit">
               Prenota Ora
-            </a>
+            </Link>
           </div>
         </div>
       )}

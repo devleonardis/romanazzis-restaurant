@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Carta dei Vini — Romanazzi's Ristorante a Giovinazzo",
@@ -151,9 +151,9 @@ export default function CartaViniPage() {
         intro="Una cantina ampia e studiata ad hoc per gli abbinamenti con la cucina di mare di Romanazzi's: dalle bollicine pugliesi alle grandi Maison di Champagne."
         showBadges={false}
       >
-        <a href={site.booking} target="_blank" rel="noopener noreferrer" className="btn-solid">
+        <Link href="/prenota" className="btn-solid">
           Prenota Ora
-        </a>
+        </Link>
       </Hero>
 
       <section className="section-space container-xl">

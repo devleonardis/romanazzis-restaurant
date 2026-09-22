@@ -45,9 +45,9 @@ export default function IlRistorantePage() {
         title="Ristorante di Pesce a Bari e Provincia"
         intro="La cucina di mare di Romanazzi's, su un tavolo che guarda il porto di Giovinazzo, all'interno del Torrione Aragonese."
       >
-        <a href={site.booking} target="_blank" rel="noopener noreferrer" className="btn-solid">
+        <Link href="/prenota" className="btn-solid">
           Prenota il Tuo Tavolo
-        </a>
+        </Link>
         <a href={site.phoneHref} className="btn-rect">
           Chiama
         </a>

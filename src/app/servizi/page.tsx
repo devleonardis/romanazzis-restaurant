@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { Hero } from "@/components/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -23,9 +24,9 @@ export default function ServiziPage() {
         intro="Dal pranzo con vista mare alla cena romantica riservata, fino agli eventi aziendali: ogni occasione ha la sua cornice, sempre sul porticciolo di Giovinazzo."
         showBadges={false}
       >
-        <a href={site.booking} target="_blank" rel="noopener noreferrer" className="btn-solid">
+        <Link href="/prenota" className="btn-solid">
           Prenota Ora
-        </a>
+        </Link>
       </Hero>
 
       {/* PRANZO */}
@@ -39,9 +40,9 @@ export default function ServiziPage() {
             ideale per un pranzo da vivere con le persone a te vicine — con
             oltre 1.000 recensioni a 5 stelle su TripAdvisor a raccontarlo.
           </p>
-          <a href={site.booking} target="_blank" rel="noopener noreferrer" className="btn-rect mt-8 w-fit">
+          <Link href="/prenota" className="btn-rect mt-8 w-fit">
             Prenota il Tuo Tavolo
-          </a>
+          </Link>
         </Reveal>
         <Reveal delay={0.15} className="relative aspect-[4/3] overflow-hidden">
           <Image src="/images/pranzo/f-25.jpg" alt="Pranzo vista mare al Romanazzi's" fill className="object-cover" sizes="(min-width: 1024px) 45vw, 100vw" />
@@ -62,9 +63,9 @@ export default function ServiziPage() {
             il suono del mare a fare da sottofondo. Oltre 900 recensioni a 5
             stelle su TripAdvisor.
           </p>
-          <a href={site.booking} target="_blank" rel="noopener noreferrer" className="btn-rect mt-8 w-fit">
+          <Link href="/prenota" className="btn-rect mt-8 w-fit">
             Prenota il Tuo Tavolo
-          </a>
+          </Link>
         </Reveal>
       </section>
 
@@ -125,9 +126,9 @@ export default function ServiziPage() {
             <li>— Servizio discreto e mai invadente</li>
             <li>— Cantina ampia con la Sommelier Miriana al tuo servizio</li>
           </ul>
-          <a href={site.booking} target="_blank" rel="noopener noreferrer" className="btn-solid mt-8 w-fit">
+          <Link href="/prenota" className="btn-solid mt-8 w-fit">
             Prenota Ora
-          </a>
+          </Link>
         </Reveal>
         <Reveal delay={0.15} className="relative aspect-[4/3] overflow-hidden">
           <Image src="/images/cena-romantica/cena-romantica-10.jpg" alt="Cena romantica al Romanazzi's" fill className="object-cover" sizes="(min-width: 1024px) 45vw, 100vw" />
